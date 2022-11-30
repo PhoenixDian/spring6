@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--外部注入-->
+    <bean id="orderService" class="com.phoenixdian.spring6.service.OrderService">
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
+    <!--内部注入-->
+    <bean id="orderService2" class="com.phoenixdian.spring6.service.OrderService">
+        <property name="orderDao">
+            <bean class="com.phoenixdian.spring6.dao.OrderDao"/>
+        </property>
+    </bean>
+
+    <bean id="orderDao" class="com.phoenixdian.spring6.dao.OrderDao"/>
+
+
+    <bean id="user" class="com.phoenixdian.spring6.bean.User">
+        <property name="age" value="10"/>
+        <property name="password" value="张三"/>
+        <property name="userName" value="111"/>
+    </bean>
+
+    <bean id="simpleClassType" class="com.phoenixdian.spring6.bean.SimpleClassType">
+        <property name="b" value="false"/>
+        <property name="bb" value="false"/>
+        <property name="c" value="c"/>
+        <property name="cc" value="c"/>
+        <property name="clazz" value="java.util.Date"/>
+        <property name="i" value="1"/>
+        <property name="ii" value="1"/>
+        <property name="userName" value="PhoenixDian"/>
+        <property name="weather" value="AUTUMN"/>
+        <property name="birthday" value="Tue Aug 09 18:01:54 CST 2016"/>
+    </bean>
+
+
+    <bean class="com.phoenixdian.spring6.jdbc.MyDataSource" id="myDataSource">
+        <property name="password" value="aaa"/>
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/spring6"/>
+        <property name="username" value="aa"/>
+    </bean>
+
+
+</beans>

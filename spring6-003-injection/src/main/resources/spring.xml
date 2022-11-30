@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.phoenixdian.spring6.service.UserService" id="userService">
+        <property name="userDao" ref="userDao"/>
+        <property name="vipDao" ref="vipDao"/>
+    </bean>
+    <bean id="userDao" class="com.phoenixdian.spring6.dao.UserDao"/>
+    <bean class="com.phoenixdian.spring6.dao.VipDao" id="vipDao"/>
+
+    <bean id="customerService" class="com.phoenixdian.spring6.service.CustomerService">
+        <constructor-arg ref="vipDao"/>
+        <constructor-arg ref="userDao"/>
+    </bean>
+
+    <bean id="customerService2" class="com.phoenixdian.spring6.service.CustomerService">
+        <constructor-arg index="0" ref="userDao"/>
+        <constructor-arg index="1" ref="vipDao"/>
+    </bean>
+
+    <bean class="com.phoenixdian.spring6.service.CustomerService" id="customerService3">
+        <constructor-arg name="userDao" ref="userDao"/>
+        <constructor-arg ref="vipDao" name="vipDao"/>
+    </bean>
+
+
+    <!--外部注入-->
+    <bean id="orderService" class="com.phoenixdian.spring6.service.OrderService">
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
+    <bean id="orderService2" class="com.phoenixdian.spring6.service.OrderService">
+        <property name="orderDao">
+            <bean class="com.phoenixdian.spring6.dao.OrderDao"/>
+        </property>
+    </bean>
+
+    <bean id="orderDao" class="com.phoenixdian.spring6.dao.OrderDao"/>
+</beans>
