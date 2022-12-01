@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--根据名字进行自动装配-->
+    <!--自动装配是基于set方式实现的-->
+    <bean class="com.phoenixdian.spring6.service.OrderService" id="orderService3" autowire="byName"/>
+    <bean class="com.phoenixdian.spring6.dao.OrderDao" id="orderDao"/>
+
+
+    <bean id="customerService4" class="com.phoenixdian.spring6.service.CustomerService" autowire="byType"/>
+    <bean id="userDao" class="com.phoenixdian.spring6.dao.UserDao"/>
+    <bean id="vipDao" class="com.phoenixdian.spring6.dao.VipDao"/>
+</beans>

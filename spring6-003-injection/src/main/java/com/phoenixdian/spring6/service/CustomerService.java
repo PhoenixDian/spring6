@@ -15,4 +15,15 @@ public class CustomerService {
         this.userDao = userDao;
         this.vipDao = vipDao;
     }
+
+    public CustomerService() {
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    public void setVipDao(VipDao vipDao) {
+        this.vipDao = vipDao;
+    }
 }

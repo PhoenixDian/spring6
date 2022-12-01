@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.phoenixdian.spring6.bean.Boy" id="boy">
+        <property name="hobby">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+        <property name="girls">
+            <array>
+                <ref bean="girl"/>
+                <ref bean="girl2"/>
+                <ref bean="girl3"/>
+            </array>
+        </property>
+        <!--<property name="name" value=""/>-->
+        <property name="name">
+            <value/>
+        </property>
+        <!--<property name="name">-->
+        <!--    <null/>-->
+        <!--</property>-->
+    </bean>
+
+    <bean class="com.phoenixdian.spring6.bean.Girl" id="girl">
+        <property name="name" value="小花🔅"/>
+    </bean>
+    <bean class="com.phoenixdian.spring6.bean.Girl" id="girl2">
+        <property name="name" value="小红"/>
+    </bean>
+    <bean class="com.phoenixdian.spring6.bean.Girl" id="girl3">
+        <property name="name" value="小兰"/>
+    </bean>
+
+</beans>

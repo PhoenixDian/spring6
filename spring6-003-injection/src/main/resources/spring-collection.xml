@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.phoenixdian.spring6.bean.Person" id="person">
+        <property name="address">
+            <set>
+                <value>北京</value>
+                <value>上海</value>
+                <value>上海</value>
+                <value>深圳</value>
+            </set>
+        </property>
+        <property name="names">
+            <list>
+                <value>张三</value>
+                <value>李四</value>
+                <value>王五</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="1" value="111"/>
+                <entry key="2" value="222"/>
+                <entry key="3" value="333"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="a">aa</prop>
+                <prop key="b">bb</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
